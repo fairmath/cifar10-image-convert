@@ -1,12 +1,13 @@
 import json
 import numpy as np
 from PIL import Image
+from math import sqrt
 
 
 def reshape_array(array):
     list_r, list_g, list_b = np.array_split(array, 3)
     rgb = list(zip(list_r, list_g, list_b))
-    n = 32
+    n = int(sqrt(len(rgb)))
     x = [rgb[i:i + n] for i in range(0, len(rgb), n)]
     return x
 
